@@ -5,6 +5,11 @@ export const getUsers = async(req, res) => {
     res.status(200).json(users)
 }
 
+export const getUserByName = async(req, res) => {
+    const user = await Users.findOne({ where: { name: `${req.params.name}`}})
+    res.status(200).json(user)
+}
+
 //? EXAMPLE WITHOUT SEQUELIZE
 // import { pool } from '../database.js'
 
