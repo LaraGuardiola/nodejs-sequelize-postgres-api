@@ -10,6 +10,12 @@ export const getUserByName = async(req, res) => {
     res.status(200).json(user)
 }
 
+export const postUser = async(req, res) => {
+    const user = await Users.create({name: "Shinji"})
+    console.log("User's auto-generated ID:", user.id);
+    res.status(201).json({userCreated: true})
+} 
+
 //? EXAMPLE WITHOUT SEQUELIZE
 // import { pool } from '../database.js'
 
